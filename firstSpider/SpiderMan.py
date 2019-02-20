@@ -19,15 +19,16 @@ class SpiderMan(object):
         while (self.manager.has_new_url() and self.manager.get_old_url_size() < 100):
             try:
                 new_url = self.manager.get_new_url()
-                html = self.downloader.download(new_url)
-                new_urls, data = self.parser.parser(new_url,html)
-                self.manager.add_new_url(new_urls)
+                html = HtmlDownloader.download(new_url)
+                data = self.parser.parser(new_url, html)
+                # self.manager.add_new_url(new_urls)
                 self.output.store_data(data)
-                print '已经抓取%s个链接' % self.manager.get_old_url_size()
+                # print '已经抓取%s个链接' % self.manager.get_old_url_size()
             except Exception, e:
-                print 'craml execption',e
+                print 'craml execption %s' % e
         self.output.output_html()
+
 
 if __name__ == '__main__':
     spider_man = SpiderMan()
-    spider_man.crawl('https://baike.baidu.com/view/284853.htm')
+    spider_man.crawl('https://www.19lou.com/r/1/19lnsxq.html')
