@@ -12,6 +12,6 @@ class HtmlDownloader(object):
         headers = {'User-Agent': user_agent}
         r = requests.get(url, headers, allow_redirects=False)
         if r.status_code == 200:
-            r.encoding = 'utf=8'
+            r.encoding = 'gb18030'
             return r.text
         return None
