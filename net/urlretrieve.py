@@ -56,16 +56,14 @@ def get_detail(girl, url):
     girl['profile'] = div_profile_text
 
 
-
 if __name__ == '__main__':
     # crawl('https://www.19lou.com/r/1/19lnsxq-3.html')
 
     headers = dict()
-    # headers[''] =
-    r = requests.get('https://www.19lou.com/forum-164-thread-9491548519005504-1-1.html')
+    headers['User-Agent'] = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.119 Safari/537.36'
+    r = requests.get('https://www.19lou.com/forum-9-thread-5151550806308045-1-1.html', headers=headers)
+    print r.text
 
-    r.encoding = 'gb18030'
     html = etree.HTML(r.text, parser=etree.HTMLParser(encoding='gb18030'))
-
-    div_profile_text = html.xpath('.//div[@class="love-blind-info fr"]/p[0]/text()')
-    print div_profile_text
+    social_account = html.xpath('//*[@id="view-hd"]/h1/a/span')
+    print social_account
