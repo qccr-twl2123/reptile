@@ -61,7 +61,7 @@ if __name__ == '__main__':
 
     headers = dict()
     headers['User-Agent'] = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.119 Safari/537.36'
-    r = requests.get('https://www.19lou.com/forum-9-thread-5151550806308045-1-1.html', headers=headers)
+    r = requests.get('https://www.19lou.com/forum-464893-thread-18021551145519015-1-1.html', headers=headers)
     print r.text
 
     html = etree.HTML(r.text, parser=etree.HTMLParser(encoding='gb18030'))
