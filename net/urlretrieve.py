@@ -40,7 +40,7 @@ def crawl(url):
 
         get_detail(girl, detail_url[0])
         girl_list.append(girl)
-        urllib.urlretrieve(download_url, '/Users/mark1xie/img/test/img' + str(i) + '.jpg', schedule)
+        urllib.urlretrieve(download_url, '/Users/mac/Documents/document/images/' + str(i) + '.jpg', schedule)
         i += 1
     with open('girl.json', 'w') as fp:
         json.dump(girl_list, fp, indent=4, ensure_ascii=False)
@@ -57,13 +57,13 @@ def get_detail(girl, url):
 
 
 if __name__ == '__main__':
-    # crawl('https://www.19lou.com/r/1/19lnsxq-3.html')
+    crawl('https://www.19lou.com/r/1/19lnsxq-9.html')
 
-    headers = dict()
-    headers['User-Agent'] = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.119 Safari/537.36'
-    r = requests.get('https://www.19lou.com/forum-464893-thread-18021551145519015-1-1.html', headers=headers)
-    print r.text
-
-    html = etree.HTML(r.text, parser=etree.HTMLParser(encoding='gb18030'))
-    social_account = html.xpath('//*[@id="view-hd"]/h1/a/span')
-    print social_account
+    # headers = dict()
+    # headers['User-Agent'] = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.119 Safari/537.36'
+    # r = requests.get('https://www.19lou.com/forum-464893-thread-18021551145519015-1-1.html', headers=headers)
+    # print r.text
+    #
+    # html = etree.HTML(r.text, parser=etree.HTMLParser(encoding='gb18030'))
+    # social_account = html.xpath('//*[@id="view-hd"]/h1/a/span')
+    # print social_account
