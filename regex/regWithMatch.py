@@ -7,7 +7,7 @@ import re
 pattern = re.compile(r'\d+')
 
 # 使用match匹配字符串, 从字符串起始位置开始匹配字符串, 无匹配则返回none
-result1 = re.match(pattern,  '1928abc')
+result1 = re.match(pattern,  '1928abc344')
 if result1:
     print result1.group()
 else:
